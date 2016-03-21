@@ -1,0 +1,7 @@
+<h1>Idea Box</h1>
+
+<%= form_tag ideas_path, method: :post do %>
+  <%= label_tag :idea %>
+  <%= text_field_tag :idea %>
+  <%= submit_tag "Create Idea" %>
+<% end %>
