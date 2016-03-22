@@ -1,59 +1,21 @@
 $(document).ready(function(){
-  function renderPost(post) {
-    $('#latest-posts').append(
-      "<div class='post' data-id='" + post.id + "'><h6> Published on: " +
-      post.created_at + "</h6><p>" + post.description
-      + "</p>" +
-      "<button id='delete-post' name=button-fetch class='btn btn-default'>Delete</button>"
-       + "</div>"
+  function showIdea(idea) {
+    $('.allIdeas').append(
+      "<div class='idea' idea-id='" + idea.id + "'>"
+        +"<h4> Idea title: " + idea.title + "</h4>"
+        +"<p>" + idea.body + "</p>"
+      +"</div>"
     )
   }
 
   $.ajax({
-    type: "GET",
-    url : "https://turing-birdie.herokuapp.com/api/v1/posts.json",
-    success: function(posts) {
-      $.each(posts, function(index, post){
-        renderPost(post)
+    type: 'GET',
+    url:  'http://localhost:3000/api/v1/ideas',
+    success: function(ideas) {
+      $.each(ideas, function(index, idea){
+        showIdea(idea)
       })
     }
   })
 
-  $('#create-post').on('click', function(){
-    var postParams = {
-      post: {
-        description: $('#post-description').val()
-      }
-    }
-    $.ajax({
-      type: 'POST',
-      url : 'https://turing-birdie.herokuapp.com/api/v1/posts.json',
-      data: postParams,
-      success: function(newPost) {
-        renderPost(newPost)
-      },
-      error: function(xhr) {
-        console.log(xhr.responseText)
-      }
-    })
-  })
-
-  $('#latest-posts').delegate('#delete-post', 'click', function(){
-    var $post = $(this).closest('.post')
-
-    $.ajax({
-      type: 'DELETE',
-      url : "https://turing-birdie.herokuapp.com/api/v1/posts/" +
-            $post.attr('data-id')+ ".json",
-      success: function(){
-        $post.remove()
-      },
-      error: function(xhr) {
-        console.log(xhr.responseText)
-      }
-    })
-  })
-
-
-
-})
+});
