@@ -1,7 +1,27 @@
-<h1>Idea Box</h1>
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Idea Box 2.0</title>
+</head>
 
-<%= form_tag ideas_path, method: :post do %>
-  <%= label_tag :idea %>
-  <%= text_field_tag :idea %>
-  <%= submit_tag "Create Idea" %>
-<% end %>
+<body>
+  <h1>Idea Box</h1>
+
+  <div class="container">
+    <h2>Save your idea</h2>
+    <%= form_tag ideas_path, method: :post do %>
+      <%= label_tag :title %>
+      <%= text_field_tag :title %>
+      <%= label_tag :body %>
+      <%= text_area_tag :body %>
+      <%= submit_tag "Save" %>
+    <% end %>
+  </div>
+
+
+  <div class="ideas">
+
+  </div>
+</body>
+</html>
