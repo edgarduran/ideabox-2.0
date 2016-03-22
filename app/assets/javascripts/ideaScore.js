@@ -6,13 +6,15 @@ $(document).ready(function(){
   function increaseScore() {
     $('.allIdeas').delegate('#thumbs-up', 'click', function() {
       var $idea = $(this).parent('.idea')
+      var $score = $(this).siblings('#score')
       var $ideaId = parseInt($(this).parent('.idea').attr('idea-id'))
 
       $.ajax({
         type: 'PUT',
         url:  'http://localhost:3000/api/v1/ideas/' + $ideaId,
         success: function() {
-          console.log('Thumbs Up');
+          var newScore = parseInt($score.text(), 10) + 1;
+          $score.text(newScore);
         },
         error: function(xhr) {
           console.log(xhr.responseText);

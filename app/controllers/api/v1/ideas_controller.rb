@@ -1,4 +1,4 @@
-class Api::V1::IdeasController < ApplicationController
+class Api::V1::IdeasController < Api::V1::ApiController
   respond_to :json
 
   def index
@@ -14,7 +14,8 @@ class Api::V1::IdeasController < ApplicationController
   end
 
   def update
-    respond_with Idea.all
+    idea = Idea.find(params[:id])
+    respond_with idea.update_attributes(score: 1)
   end
 
   private
