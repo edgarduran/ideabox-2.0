@@ -1,25 +1,20 @@
 $(document).ready(function(){
-  deletIdea();
+  deleteIdea();
 });
 
-  function deletIdea() {
+function deleteIdea() {
+  $('.allIdeas').delegate('#delete-idea', 'click', function () {
+    var $idea = $(this).parent('.idea')
+    var $ideaId = parseInt($(this).parent('.idea').attr('idea-id'))
 
+    $.ajax({
+      type: 'DELETE',
+      url:  'http://localhost:3000/api/v1/ideas/' + $ideaId,
+      success: function() {
+        $idea.remove();
+      }
+    })
 
-
-  };
-
-  
-  $('.allIdeas').delegate('#delete-idea', 'click', function() {
-    var $idea = $(this).closest('.idea')
-
-  $.ajax({
-    type: 'DELETE',
-    url:  "http://localhost:3000/api/v1/idea/" + $idea.attr('idea-id'),
-    success: function(){
-      $idea.remove()
-    },
-    error: function(xhr) {
-      console.log(xhr.responseText);
-    }
   })
-  })
+
+};

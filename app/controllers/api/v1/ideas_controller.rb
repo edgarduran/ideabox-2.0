@@ -6,8 +6,7 @@ class Api::V1::IdeasController < ApplicationController
   end
 
   def destroy
-    binding.pry
-    respond_with Item.destroy(params[:id])
+    respond_with Idea.destroy(params[:id])
   end
 
   def create
