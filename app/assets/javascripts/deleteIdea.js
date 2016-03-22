@@ -12,9 +12,11 @@ function deleteIdea() {
       url:  'http://localhost:3000/api/v1/ideas/' + $ideaId,
       success: function() {
         $idea.remove();
+      },
+      error: function(xhr) {
+        console.log(xhr.responseText)
       }
     })
-
   })
 
 };

@@ -13,6 +13,10 @@ class Api::V1::IdeasController < ApplicationController
     respond_with Idea.create(idea_params), location: nil
   end
 
+  def update
+    respond_with Idea.all
+  end
+
   private
   def idea_params
     params.permit(:title, :body, :quality)
