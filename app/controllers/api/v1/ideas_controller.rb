@@ -9,4 +9,12 @@ class Api::V1::IdeasController < ApplicationController
     respond_with Item.destroy(params[:id])
   end
 
+  def create
+    respond_with Idea.create(idea_params), location: nil
+  end
+
+  private
+  def idea_params
+    params.permit(:title, :body, :quality)
+  end
 end

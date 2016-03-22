@@ -10,13 +10,13 @@
 
   <div class="container">
     <h2>Save your idea</h2>
-    <%= form_tag ideas_path, method: :post do %>
-      <%= label_tag :title %>
-      <%= text_field_tag :title %>
-      <%= label_tag :body %>
-      <%= text_area_tag :body %>
-      <%= submit_tag "Save" %>
-    <% end %>
+    <div class="form-group">
+      <label>Title</label>
+      <input class="form-control" type="text" id="idea-title">
+      <label>Body</label>
+      <textarea class="form-control" id="idea-body" name="body" rows="3" cols="30"></textarea>
+    </div>
+    <input class="btn btn-default pull-right" id="create-idea" type="button" name="submit" value="Create Idea">
   </div>
 
   <h3>Your Ideas</h3>
