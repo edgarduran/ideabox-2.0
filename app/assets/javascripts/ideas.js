@@ -11,6 +11,7 @@ function showIdea(idea) {
       +"<p id='score'>" + idea.score + "</p>"
       +"<button id='thumbs-up'>Thumbs Up</button>"
       +"<button id='thumbs-down'>Thumbs Down</button>"
+      +"<button id='edit-idea'>Edit Idea</button>"
       +"<button id='delete-idea'>Delete</button>"
     +"</div>"
   )
