@@ -14,9 +14,8 @@ class Api::V1::IdeasController < Api::V1::ApiController
   end
 
   def update
-    binding.pry
     idea = Idea.find(params[:id])
-    respond_with idea.update_attributes(quality: params[:quality])
+    respond_with idea.update(idea_params)
   end
 
   private
