@@ -20,7 +20,7 @@ $(document).ready(function(){
       $.ajax({
         type: 'PUT',
         data: {quality: newQuality},
-        url:  'http://localhost:3000/api/v1/ideas/' + $ideaId,
+        url:  '/api/v1/ideas/' + $ideaId,
         success: function() {
           $idea.find('#quality').text(newQuality);
         },
@@ -48,7 +48,7 @@ $(document).ready(function(){
       $.ajax({
         type: 'PUT',
         data: {quality: newQuality},
-        url:  'http://localhost:3000/api/v1/ideas/' + $ideaId,
+        url:  '/api/v1/ideas/' + $ideaId,
         success: function() {
           $idea.find('#quality').text(newQuality);
         },

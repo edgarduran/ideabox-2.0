@@ -16,7 +16,7 @@ function createIdea() {
 
   $.ajax({
       type: 'POST',
-      url:  'http://localhost:3000/api/v1/ideas',
+      url:  '/api/v1/ideas',
       data: ideaParams,
       success: function(newIdea) {
         showIdea(newIdea);

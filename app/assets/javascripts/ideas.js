@@ -19,7 +19,7 @@ function showIdea(idea) {
 function allIdeas() {
   $.ajax({
     type: 'GET',
-    url:  'http://localhost:3000/api/v1/ideas',
+    url:  '/api/v1/ideas',
     success: function(ideas) {
       $.each(ideas, function(index, idea){
         showIdea(idea)

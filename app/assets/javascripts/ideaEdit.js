@@ -35,7 +35,7 @@ $(document).ready(function(){
         $.ajax({
           type: 'PUT',
           data: editParams,
-          url:  'http://localhost:3000/api/v1/ideas/' + $ideaId,
+          url:  '/api/v1/ideas/' + $ideaId,
           success: function() {
             editButton.toggle();
             $('#save-changes').parent().hide();

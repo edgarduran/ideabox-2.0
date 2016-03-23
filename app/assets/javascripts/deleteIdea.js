@@ -9,7 +9,7 @@ function deleteIdea() {
 
     $.ajax({
       type: 'DELETE',
-      url:  'http://localhost:3000/api/v1/ideas/' + $ideaId,
+      url:  '/api/v1/ideas/' + $ideaId,
       success: function() {
         $idea.remove();
       },
