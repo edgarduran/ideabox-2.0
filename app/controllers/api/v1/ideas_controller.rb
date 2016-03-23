@@ -15,7 +15,7 @@ class Api::V1::IdeasController < Api::V1::ApiController
 
   def update
     idea = Idea.find(params[:id])
-    respond_with idea.update_attributes(score: 1)
+    respond_with idea.update_attributes(quality: params[:quality])
   end
 
   private
