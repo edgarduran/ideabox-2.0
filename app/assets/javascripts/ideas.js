@@ -7,7 +7,7 @@ function showIdea(idea) {
     "<div class='idea' idea-id='" + idea.id + "'>"
       +"<h4> Idea title: " + idea.title + "</h4>"
       +"<p>" + idea.body + "</p>"
-      +"<p>" + idea.quality + "</p>"
+      +"<p id='quality'>" + idea.quality + "</p>"
       +"<p id='score'>" + idea.score + "</p>"
       +"<button id='thumbs-up'>Thumbs Up</button>"
       +"<button id='thumbs-down'>Thumbs Down</button>"
