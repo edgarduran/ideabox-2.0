@@ -43,7 +43,6 @@ $(document).ready(function(){
             bodyField.text(editParams.body);
             titleField.toggle();
             titleField.text(editParams.title);
-            console.log('lucky charms');
           },
           error: function(xhr) {
             console.log(xhr.responseText);
