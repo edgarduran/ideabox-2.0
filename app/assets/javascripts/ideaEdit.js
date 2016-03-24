@@ -6,8 +6,8 @@ $(document).ready(function(){
     $('.allIdeas').delegate('#edit-idea', 'click', function() {
       var $idea = $(this).parents('.idea')
       var $ideaId = parseInt($(this).parents('.idea').attr('idea-id'))
-      var titleField = $(this).parents().find('#idea-title')
-      var bodyField = $(this).parents().find('#idea-body')
+      var titleField = $(this).closest('.idea').find('#idea-title')
+      var bodyField = $(this).closest('.idea').find('#idea-body')
       var editButton = $(this)
       var editForm = (
         "<div class='container'>"
