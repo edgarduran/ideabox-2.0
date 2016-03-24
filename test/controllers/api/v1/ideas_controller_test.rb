@@ -17,16 +17,14 @@ class Api::V1::IdeasControllerTest < ActionController::TestCase
   end
 
   test "#create" do
-    skip  
-    idea = { title: "Test Idea", body: "Some Stuff", quality: "swill" }
     assert_equal 2, Idea.count
-    post :create, idea: idea, format: :json
+    post :create, format: :json, title: "Test Idea", body: "Some Stuff", quality: "swill"
 
     createdIdea = JSON.parse(response.body)
 
     assert_response :success
-    assert_equal 3, Item.count
-
+    assert_equal 3, Idea.count
+    assert_equal "Test Idea", Idea.first.title
   end
 
   test "#destroy" do
