@@ -5,9 +5,9 @@ $(document).ready(function(){
 function searchIdea() {
   $('#idea-search').keyup(function(event) {
     var searchTerm = $(this).val().toLowerCase();
-    var ideas      = $('#ideas-index').children();
+    var ideas      = $('.allIdeas').children();
 
-    ideas.removeClass('invisible');
+    ideas.removeClass('dont-show');
 
     var hiddenIdeas = ideas.filter(function() {
       var titleAndBodyText = $(this).find('#idea-title, #idea-body')
@@ -16,6 +16,8 @@ function searchIdea() {
       return !(titleAndBodyText.includes(searchTerm));
     });
 
-    hiddenIdeas.addClass('invisible');
+    hiddenIdeas.addClass('dont-show');
   })
 };
+
+var titleAndBodyText = $(this).parents().next().find('#idea-title, #idea-body')

@@ -1,11 +1,13 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 one:
-  title: MyString
-  body: MyString
-  quality: MyString
+  id: 1
+  title: IdeaOne
+  body: DescriptionOfTheFirstIdea
+  quality: swill
 
 two:
-  title: MyString
-  body: MyString
-  quality: MyString
+  id: 2
+  title: IdeaTwo
+  body: SecondIdeaDescription
+  quality: genius

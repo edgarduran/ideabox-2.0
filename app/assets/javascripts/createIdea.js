@@ -10,8 +10,8 @@ function clearForm() {
 function createIdea() {
   $('#create-idea').on('click', function() {
     var ideaParams = {
-      title: $('#idea-title').val(),
-      body: $('#idea-body').val()
+      title: $('#idea-title').val().substring(0, 15),
+      body: $('#idea-body').val().substring(0, 100)
     }
 
   $.ajax({

@@ -1,0 +1,77 @@
+{
+  "MiniTest": {
+    "coverage": {
+      "/Users/edgarduran/code/projects/ideabox-2.0/app/models/idea.rb": [
+        1,
+        1,
+        6,
+        null
+      ],
+      "/Users/edgarduran/code/projects/ideabox-2.0/app/controllers/ideas_controller.rb": [
+        1,
+        null,
+        1,
+        null,
+        null,
+        null
+      ],
+      "/Users/edgarduran/code/projects/ideabox-2.0/app/controllers/application_controller.rb": [
+        1,
+        null,
+        null,
+        1,
+        null
+      ],
+      "/Users/edgarduran/code/projects/ideabox-2.0/app/helpers/application_helper.rb": [
+        1,
+        null
+      ],
+      "/Users/edgarduran/code/projects/ideabox-2.0/app/helpers/api/v1/api_helper.rb": [
+        1,
+        null
+      ],
+      "/Users/edgarduran/code/projects/ideabox-2.0/app/helpers/api/v1/ideas_helper.rb": [
+        1,
+        null
+      ],
+      "/Users/edgarduran/code/projects/ideabox-2.0/app/helpers/ideas_helper.rb": [
+        1,
+        null
+      ],
+      "/Users/edgarduran/code/projects/ideabox-2.0/app/controllers/api/v1/ideas_controller.rb": [
+        1,
+        1,
+        null,
+        1,
+        1,
+        null,
+        null,
+        1,
+        1,
+        null,
+        null,
+        1,
+        0,
+        null,
+        null,
+        1,
+        0,
+        0,
+        null,
+        null,
+        1,
+        1,
+        0,
+        null,
+        null
+      ],
+      "/Users/edgarduran/code/projects/ideabox-2.0/app/controllers/api/v1/api_controller.rb": [
+        1,
+        1,
+        null,
+        null
+      ]
+    },
+    "timestamp": 1458837273
+  }
+}
