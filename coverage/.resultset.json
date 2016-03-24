@@ -4,7 +4,7 @@
       "/Users/edgarduran/code/projects/ideabox-2.0/app/models/idea.rb": [
         1,
         1,
-        6,
+        10,
         null
       ],
       "/Users/edgarduran/code/projects/ideabox-2.0/app/controllers/ideas_controller.rb": [
@@ -51,7 +51,7 @@
         null,
         null,
         1,
-        0,
+        1,
         null,
         null,
         1,
@@ -61,7 +61,7 @@
         null,
         1,
         1,
-        0,
+        1,
         null,
         null
       ],
@@ -72,6 +72,6 @@
         null
       ]
     },
-    "timestamp": 1458837273
+    "timestamp": 1458841442
   }
 }
