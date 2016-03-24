@@ -5,9 +5,9 @@ $(document).ready(function(){
 
   function thumbsUp() {
     $('.allIdeas').delegate('#thumbs-up', 'click', function() {
-      var $idea = $(this).parent('.idea')
-      var $ideaId = parseInt($(this).parent('.idea').attr('idea-id'))
-      var quality = $(this).siblings('#quality').text()
+      var $idea = $(this).parents('.idea')
+      var $ideaId = parseInt($(this).parents('.idea').attr('idea-id'))
+      var quality = $(this).parents().find('#quality').text()
 
       if (quality === "swill") {
         var newQuality = "plausible"
@@ -33,9 +33,9 @@ $(document).ready(function(){
 
   function thumbsDown() {
     $('.allIdeas').delegate('#thumbs-down', 'click', function() {
-      var $idea = $(this).parent('.idea')
-      var $ideaId = parseInt($(this).parent('.idea').attr('idea-id'))
-      var quality = $(this).siblings('#quality').text()
+      var $idea = $(this).parents('.idea')
+      var $ideaId = parseInt($(this).parents('.idea').attr('idea-id'))
+      var quality = $(this).parents().find('#quality').text()
 
       if (quality === "genius") {
         var newQuality = "plausible"
