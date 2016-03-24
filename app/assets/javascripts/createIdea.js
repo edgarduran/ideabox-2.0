@@ -19,7 +19,7 @@ function createIdea() {
       url:  '/api/v1/ideas',
       data: ideaParams,
       success: function(newIdea) {
-        showIdea(newIdea);
+        showNewIdea(newIdea);
         clearForm();
       },
       error: function(xhr) {
