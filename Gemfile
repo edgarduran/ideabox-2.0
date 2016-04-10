@@ -10,6 +10,7 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 gem 'pry-rails'
 gem 'responders'
 gem 'simplecov'
+gem 'rack-cors', :require => 'rack/cors'
 
 
 group :test do
