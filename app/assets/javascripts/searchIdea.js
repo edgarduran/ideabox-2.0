@@ -17,7 +17,7 @@ function searchIdea() {
     });
 
     hiddenIdeas.addClass('dont-show');
-  })
-};
+  });
+}
 
-var titleAndBodyText = $(this).parents().next().find('#idea-title, #idea-body')
+var titleAndBodyText = $(this).parents().next().find('#idea-title, #idea-body');

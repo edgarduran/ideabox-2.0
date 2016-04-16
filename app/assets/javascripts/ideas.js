@@ -4,13 +4,12 @@ $(document).ready(function(){
 
 
 function showIdea(idea) {
-  debugger;
-  $('.allIdeas').append(individualIdea(idea))
-};
+  $('.allIdeas').append(individualIdea(idea));
+}
 
 function showNewIdea(idea) {
-  $('.allIdeas').prepend(individualIdea(idea))
-};
+  $('.allIdeas').prepend(individualIdea(idea));
+}
 
 
 function allIdeas() {
@@ -19,8 +18,8 @@ function allIdeas() {
     url:  '/api/v1/ideas',
     success: function(ideas) {
       $.each(ideas, function(index, idea){
-        showIdea(idea)
-      })
+        showIdea(idea);
+      });
     }
-  })
-};
+  });
+}
