@@ -5,6 +5,10 @@ class Api::V1::IdeasController < Api::V1::ApiController
     respond_with Idea.all
   end
 
+  def show
+    respond_with Idea.find(params[:id])
+  end
+
   def destroy
     respond_with Idea.destroy(params[:id])
   end
