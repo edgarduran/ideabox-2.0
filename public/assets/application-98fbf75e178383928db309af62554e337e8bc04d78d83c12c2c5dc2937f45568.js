@@ -11587,14 +11587,14 @@ $(document).ready(function(){
 function clearForm() {
   $('#idea-title').val('');
   $('#idea-body').val('');
-};
+}
 
 function createIdea() {
   $('#create-idea').on('click', function() {
     var ideaParams = {
       title: $('#idea-title').val().substring(0, 15),
       body: $('#idea-body').val().substring(0, 100)
-    }
+    };
 
   $.ajax({
       type: 'POST',
@@ -11605,20 +11605,21 @@ function createIdea() {
         clearForm();
       },
       error: function(xhr) {
-        console.log(xhr.responseText)
+        console.log(xhr.responseText);
       }
-    })
-  })
+    });
+  });
 
-};
+}
+;
 $(document).ready(function(){
   deleteIdea();
 });
 
 function deleteIdea() {
   $('.allIdeas').delegate('#delete-idea', 'click', function () {
-    var $idea = $(this).parents('.idea')
-    var $ideaId = parseInt($(this).parents('.idea').attr('idea-id'))
+    var $idea = $(this).parents('.idea');
+    var $ideaId = parseInt($(this).parents('.idea').attr('idea-id'));
 
     $.ajax({
       type: 'DELETE',
@@ -11629,196 +11630,41 @@ function deleteIdea() {
       error: function(xhr) {
         console.log(xhr.responseText);
       }
-    })
-  })
+    });
+  });
 
-};
-var editForm = (
-  "<div class='container'>"
-    +"<div class='row'>"
-      +"<form class='col s12'>"
-        +"<h5>Make changes here</h5>"
-        +"<div class='row'>"
-          +"<div class='input-field col s6'>"
-            +"<i class='material-icons prefix'>star_rate</i>"
-            +"<label for='icon_prefix'>Title</label>"
-            +"<input class='form-control' id='edit-title' type='text' class='validate'>"
-          +"</div>"
-        +"</div>"
-        +"<div class='row'>"
-          +"<div class='input-field col s6'>"
-            +"<i class='material-icons prefix'>comment</i>"
-            +"<label for='star_rate'>Body</label>"
-            +"<textarea id='edit-body' class='materialize-textarea' length='120'></textarea>"
-            +"<a class='btn-floating btn-large waves-effect waves-light green' id='save-changes' value='Save Changes'><i class='material-icons'>done</i></a>"
-          +"</div>"
-        +"</div>"
-      +"</form>"
-    +"</div>"
-  +"</div>"
-)
-
-var ideaDiv = (
-  "<div class='idea' idea-id='" + idea.id + "'>"
-  +"<div class='row'>"
-  +"<div class='col s12 m5'>"
-  +"<div class='card blue-grey darken-1'>"
-  +"<div class='card-content white-text'>"
-  +"<h1 id='idea-title'>" + idea.title + "</h1>"
-  +"<p id='idea-body'>" + idea.body + "</p>"
-  +"<h5>Idea Qaulity:</h5>"
-  +"<h4 id='quality'>" + idea.quality + "</h4>"
-  +"</div>"
-  +"<div class='card-action'>"
-  +"<button id='thumbs-up'>Thumbs Up</button>"
-  +"<button id='thumbs-down'>Thumbs Down</button><br><br>"
-  +"<button id='edit-idea'>Edit Idea</button>"
-  +"<button id='delete-idea'>Delete</button>"
-  +"</div>"
-  +"</div>"
-  +"</div>"
-  +"</div>"
-  +"</div>"
-)
+}
 ;
-$(document).ready(function(){
-  editIdea();
-});
-
-  function editIdea() {
-    $('.allIdeas').delegate('#edit-idea', 'click', function() {
-      var $idea = $(this).parents('.idea')
-      var $ideaId = parseInt($(this).parents('.idea').attr('idea-id'))
-      var titleField = $(this).closest('.idea').find('#idea-title')
-      var bodyField = $(this).closest('.idea').find('#idea-body')
-      var editButton = $(this)
-      var editForm = (
-        "<div class='container'>"
-          +"<div class='row'>"
-            +"<form class='col s12'>"
-              +"<h5>Make changes here</h5>"
-              +"<div class='row'>"
-                +"<div class='input-field col s6'>"
-                  +"<i class='material-icons prefix'>star_rate</i>"
-                  +"<label for='icon_prefix'>Title</label>"
-                  +"<input class='form-control' id='edit-title' type='text' class='validate'>"
-                +"</div>"
-              +"</div>"
-              +"<div class='row'>"
-                +"<div class='input-field col s6'>"
-                  +"<i class='material-icons prefix'>comment</i>"
-                  +"<label for='star_rate'>Body</label>"
-                  +"<textarea id='edit-body' class='materialize-textarea' length='120'></textarea>"
-                  +"<a class='btn-floating btn-large waves-effect waves-light green' id='save-changes' value='Save Changes'><i class='material-icons'>done</i></a>"
-                +"</div>"
-              +"</div>"
-            +"</form>"
-          +"</div>"
-        +"</div>"
-      )
-
-      titleField.toggle();
-      bodyField.toggle();
-      editButton.toggle();
-      $idea.prepend(editForm);
-
-      $idea.delegate('#save-changes', 'click', function() {
-        var editParams = {
-          title: $(this).parents().find('#edit-title').val(),
-          body : $(this).parents().find('#edit-body').val()
-        }
-
-        $.ajax({
-          type: 'PUT',
-          data: editParams,
-          url:  '/api/v1/ideas/' + $ideaId,
-          success: function() {
-            editButton.toggle();
-            $('#save-changes').closest('.container').hide();
-            bodyField.toggle();
-            bodyField.text(editParams.body);
-            titleField.toggle();
-            titleField.text(editParams.title);
-          },
-          error: function(xhr) {
-            console.log(xhr.responseText);
-          }
-        })
-
-      })
-
-    })
-  };
-$(document).ready(function(){
-  thumbsUp();
-  thumbsDown();
-});
-
-  function thumbsUp() {
-    $('.allIdeas').delegate('#thumbs-up', 'click', function() {
-      var $idea = $(this).parents('.idea')
-      var $ideaId = parseInt($(this).parents('.idea').attr('idea-id'))
-      var quality = $(this).parents().find('#quality').text()
-
-      if (quality === "swill") {
-        var newQuality = "plausible"
-      } else if (quality === "plausible") {
-        var newQuality = "genius"
-      } else {
-        var newQuality = "genius"
-      }
-
-      $.ajax({
-        type: 'PUT',
-        data: {quality: newQuality},
-        url:  '/api/v1/ideas/' + $ideaId,
-        success: function() {
-          $idea.find('#quality').text(newQuality);
-        },
-        error: function(xhr) {
-          console.log(xhr.responseText);
-        }
-      })
-    })
-  };
-
-  function thumbsDown() {
-    $('.allIdeas').delegate('#thumbs-down', 'click', function() {
-      var $idea = $(this).parents('.idea')
-      var $ideaId = parseInt($(this).parents('.idea').attr('idea-id'))
-      var quality = $(this).parents().find('#quality').text()
-
-      if (quality === "genius") {
-        var newQuality = "plausible"
-      } else if (quality === "plausible") {
-        var newQuality = "swill"
-      } else {
-        var newQuality = "swill"
-      }
-
-      $.ajax({
-        type: 'PUT',
-        data: {quality: newQuality},
-        url:  '/api/v1/ideas/' + $ideaId,
-        success: function() {
-          $idea.find('#quality').text(newQuality);
-        },
-        error: function(xhr) {
-          console.log(xhr.responseText);
-        }
-      })
-    })
-  };
-$(document).ready(function(){
-  allIdeas();
-});
-
-function showIdea(idea) {
-  $('.allIdeas').append(ideaDiv)
+function editForm() {
+  return $(
+    "<div class='container'>"
+    +"<div class='row'>"
+    +"<form class='col s12'>"
+    +"<h5>Make changes here</h5>"
+    +"<div class='row'>"
+    +"<div class='input-field col s6'>"
+    +"<i class='material-icons prefix'>star_rate</i>"
+    +"<label for='icon_prefix'>Title</label>"
+    +"<input class='form-control' id='edit-title' type='text' class='validate'>"
+    +"</div>"
+    +"</div>"
+    +"<div class='row'>"
+    +"<div class='input-field col s6'>"
+    +"<i class='material-icons prefix'>comment</i>"
+    +"<label for='star_rate'>Body</label>"
+    +"<textarea id='edit-body' class='materialize-textarea' length='120'></textarea>"
+    +"<a class='btn-floating btn-large waves-effect waves-light green' id='save-changes' value='Save Changes'><i class='material-icons'>done</i></a>"
+    +"</div>"
+    +"</div>"
+    +"</form>"
+    +"</div>"
+    +"</div>"
+  )
 };
 
-function showNewIdea(idea) {
-  $('.allIdeas').prepend(
+
+function individualIdea(idea) {
+  return $(
     "<div class='idea' idea-id='" + idea.id + "'>"
     +"<div class='row'>"
     +"<div class='col s12 m5'>"
@@ -11841,6 +11687,121 @@ function showNewIdea(idea) {
     +"</div>"
   )
 };
+$(document).ready(function(){
+  editIdea();
+});
+
+  function editIdea() {
+    $('.allIdeas').delegate('#edit-idea', 'click', function() {
+      var $idea = $(this).parents('.idea');
+      var $ideaId = parseInt($(this).parents('.idea').attr('idea-id'));
+      var titleField = $(this).closest('.idea').find('#idea-title');
+      var bodyField = $(this).closest('.idea').find('#idea-body');
+      var editButton = $(this);
+
+      titleField.toggle();
+      bodyField.toggle();
+      editButton.toggle();
+      $idea.prepend(editForm());
+
+      $idea.delegate('#save-changes', 'click', function() {
+        var editParams = {
+          title: $(this).parents().find('#edit-title').val(),
+          body : $(this).parents().find('#edit-body').val()
+        };
+
+        $.ajax({
+          type: 'PUT',
+          data: editParams,
+          url:  '/api/v1/ideas/' + $ideaId,
+          success: function() {
+            editButton.toggle();
+            $('#save-changes').closest('.container').hide();
+            bodyField.toggle();
+            bodyField.text(editParams.body);
+            titleField.toggle();
+            titleField.text(editParams.title);
+          },
+          error: function(xhr) {
+            console.log(xhr.responseText);
+          }
+        });
+
+      });
+
+    });
+  }
+;
+$(document).ready(function(){
+  thumbsUp();
+  thumbsDown();
+});
+
+  function thumbsUp() {
+    $('.allIdeas').delegate('#thumbs-up', 'click', function() {
+      var $idea = $(this).parents('.idea');
+      var $ideaId = parseInt($(this).parents('.idea').attr('idea-id'));
+      var quality = $(this).parents().find('#quality').text();
+
+      if (quality === "swill") {
+        var newQuality = "plausible"
+      } else if (quality === "plausible") {
+        var newQuality = "genius"
+      } else {
+        var newQuality = "genius"
+      }
+
+      $.ajax({
+        type: 'PUT',
+        data: {quality: newQuality},
+        url:  '/api/v1/ideas/' + $ideaId,
+        success: function() {
+          $idea.find('#quality').text(newQuality);
+        },
+        error: function(xhr) {
+          console.log(xhr.responseText);
+        }
+      });
+    });
+  }
+
+  function thumbsDown() {
+    $('.allIdeas').delegate('#thumbs-down', 'click', function() {
+      var $idea = $(this).parents('.idea');
+      var $ideaId = parseInt($(this).parents('.idea').attr('idea-id'));
+      var quality = $(this).parents().find('#quality').text();
+
+      if (quality === "genius") {
+        var newQuality = "plausible"
+      } else if (quality === "plausible") {
+        var newQuality = "swill"
+      } else {
+        var newQuality = "swill"
+      }
+
+      $.ajax({
+        type: 'PUT',
+        data: {quality: newQuality},
+        url:  '/api/v1/ideas/' + $ideaId,
+        success: function() {
+          $idea.find('#quality').text(newQuality);
+        },
+        error: function(xhr) {
+          console.log(xhr.responseText);
+        }
+      });
+    });
+  }
+;
+$(document).ready(function(){
+  allIdeas();
+});
+
+
+function showIdea(idea) {
+  $('.allIdeas').append(individualIdea(idea));
+}
+
 
 function allIdeas() {
   $.ajax({
@@ -11848,11 +11809,12 @@ function allIdeas() {
     url:  '/api/v1/ideas',
     success: function(ideas) {
       $.each(ideas, function(index, idea){
-        showIdea(idea)
-      })
+        showIdea(idea);
+      });
     }
-  })
-};
+  });
+}
+;
 $(document).ready(function(){
   searchIdea();
 });
@@ -11872,11 +11834,10 @@ function searchIdea() {
     });
 
     hiddenIdeas.addClass('dont-show');
-  })
-};
+  });
+}
 
-var titleAndBodyText = $(this).parents().next().find('#idea-title, #idea-body')
-;
+var titleAndBodyText = $(this).parents().next().find('#idea-title, #idea-body');
 // This is a manifest file that'll be compiled into application.js, which will include all the files
 // listed below.
 //
