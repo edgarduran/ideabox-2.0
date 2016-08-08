@@ -29,12 +29,12 @@ function editForm() {
 function individualIdea(idea) {
   return $(
     "<div class='idea' idea-id='" + idea.id + "'>"
-    +"<div class='row'>"
-    +"<div class='col s12 m5'>"
+    +"<div class='col s4'>"
     +"<div class='card blue-grey darken-1'>"
     +"<div class='card-content white-text'>"
-    +"<h1 id='idea-title'>" + idea.title + "</h1>"
+    +"<h3 id='idea-title'>" + idea.title + "</h3>"
     +"<p id='idea-body'>" + idea.body + "</p>"
+    + "<br>"
     +"<h5>Idea Qaulity:</h5>"
     +"<h4 id='quality'>" + idea.quality + "</h4>"
     +"</div>"
@@ -43,7 +43,6 @@ function individualIdea(idea) {
     +"<button id='thumbs-down'>Thumbs Down</button><br><br>"
     +"<button id='edit-idea'>Edit Idea</button>"
     +"<button id='delete-idea'>Delete</button>"
-    +"</div>"
     +"</div>"
     +"</div>"
     +"</div>"

@@ -17,3 +17,7 @@
  .dont-show {
    display: none;
  }
+
+ .card-content {
+   height: 300px;
+ }
