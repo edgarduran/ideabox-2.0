@@ -9,47 +9,44 @@
 <body>
   <h3 class="center">Save all of your mediocre ideas!!</h3>
 
-  <div class="container">
+  <div class="idea-form container">
     <div class="row">
-      <form class="col s12 offset-s1">
-        <h5>Make a new idea</h5>
-        <div class="row">
-          <div class="input-field col s6">
-            <i class="material-icons prefix">star_rate</i>
-            <label for="icon_prefix">Title</label>
-            <input class="form-control" id="idea-title" type="text" length="15" class="validate">
-          </div>
-        </div>
-        <div class="row">
-          <div class="input-field col s6">
-            <i class="material-icons prefix">comment</i>
-            <label for="star_rate">Body</label>
-            <textarea id="idea-body" class="materialize-textarea" length="100"></textarea>
-            <a class="btn-floating btn-large waves-effect waves-light red" id="create-idea" value="Create Idea"><i class="material-icons">add</i></a>
-          </div>
-        </div>
+      <h5>Make a new idea</h5>
+      <form>
+      <div class="input-field col s6">
+        <i class="material-icons prefix">star_rate</i>
+        <label for="icon_prefix">Title</label>
+        <input class="form-control" id="idea-title" type="text" length="15" class="validate">
+      </div>
+    </div>
+    <div class="row">
+      <div class="input-field col s6">
+        <i class="material-icons prefix">comment</i>
+        <label for="star_rate">Body</label>
+        <textarea id="idea-body" class="materialize-textarea" length="100"></textarea>
+        <a class="btn-floating btn-large waves-effect waves-light red" id="create-idea" value="Create Idea"><i class="material-icons">add</i></a>
       </form>
+      </div>
     </div>
   </div>
 
 
-
-  <div class="row">
-    <form class="col s12">
-      <div class="row">
-        <div class="col s3">
-          <h3>Your Ideas</h3>
-        </div>
-        <div class="input-field col s3">
-          <i class="material-icons prefix">search</i>
-          <label for="icon_prefix">Search Ideas</label>
-          <input id="idea-search" type="text" class="validate">
-        </div>
+  <form class="">
+    <div class="row">
+      <div class="col s3">
       </div>
-    </form>
-  </div>
+      <div class="input-field col s3">
+        <i class="material-icons prefix">search</i>
+        <label for="icon_prefix">Search Ideas</label>
+        <input id="idea-search" type="text" class="validate">
+      </div>
+    </div>
+  </form>
 
-  <div class="allIdeas">
+  <%= render 'partials/edit_form' %>
+
+  <div class="allIdeas row">
+    <h2 class="center">Your Ideas</h2>
   </div>
 
 

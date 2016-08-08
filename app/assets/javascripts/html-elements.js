@@ -1,18 +1,17 @@
 function editForm() {
   return $(
-    "<div class='container'>"
-    +"<div class='row'>"
-    +"<form class='col s12'>"
+    "<div class='row edit-form'>"
+    +"<form>"
     +"<h5>Make changes here</h5>"
     +"<div class='row'>"
-    +"<div class='input-field col s6'>"
+    +"<div class='input-field col s10'>"
     +"<i class='material-icons prefix'>star_rate</i>"
     +"<label for='icon_prefix'>Title</label>"
     +"<input class='form-control' id='edit-title' type='text' class='validate'>"
     +"</div>"
     +"</div>"
     +"<div class='row'>"
-    +"<div class='input-field col s6'>"
+    +"<div class='input-field col s10'>"
     +"<i class='material-icons prefix'>comment</i>"
     +"<label for='star_rate'>Body</label>"
     +"<textarea id='edit-body' class='materialize-textarea' length='120'></textarea>"
@@ -21,7 +20,6 @@ function editForm() {
     +"</div>"
     +"</form>"
     +"</div>"
-    +"</div>"
   )
 };
 
@@ -29,12 +27,12 @@ function editForm() {
 function individualIdea(idea) {
   return $(
     "<div class='idea' idea-id='" + idea.id + "'>"
-    +"<div class='row'>"
-    +"<div class='col s12 m5'>"
+    +"<div class='col s4'>"
     +"<div class='card blue-grey darken-1'>"
     +"<div class='card-content white-text'>"
-    +"<h1 id='idea-title'>" + idea.title + "</h1>"
+    +"<h3 id='idea-title'>" + idea.title + "</h3>"
     +"<p id='idea-body'>" + idea.body + "</p>"
+    + "<br>"
     +"<h5>Idea Qaulity:</h5>"
     +"<h4 id='quality'>" + idea.quality + "</h4>"
     +"</div>"
@@ -43,7 +41,6 @@ function individualIdea(idea) {
     +"<button id='thumbs-down'>Thumbs Down</button><br><br>"
     +"<button id='edit-idea'>Edit Idea</button>"
     +"<button id='delete-idea'>Delete</button>"
-    +"</div>"
     +"</div>"
     +"</div>"
     +"</div>"

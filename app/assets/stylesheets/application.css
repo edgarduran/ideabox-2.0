@@ -17,3 +17,19 @@
  .dont-show {
    display: none;
  }
+
+ .card-content {
+   height: 300px;
+ }
+
+ .idea-form {
+   height: 125px;
+ }
+
+ .edit-form {
+   height: 88px;
+ }
+
+.nav-wrapper {
+  padding-left: 10px;
+}
