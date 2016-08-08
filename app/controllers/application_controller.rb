@@ -5,6 +5,12 @@ class ApplicationController < ActionController::Base
   helper_method :current_user
 
   def current_user
-    @user ||= User.find(session[:user_id]) if session[:user_id]
+    binding.pry
+    @current_user ||= User.find_by(auth_token: request.headers['Authorization'])
+  end
+
+  def authenticate_with_token!
+    render json: { errors: "Not authenticated" },
+                status: :unauthorized unless current_user.present?
   end
 end

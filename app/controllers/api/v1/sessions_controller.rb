@@ -1,7 +1,8 @@
 class Api::V1::SessionsController < Api::V1::ApiController
+  respond_to :json
 
   def create
-    username = params[:session][:email]
+    user_email = params[:session][:email]
     user_password = params[:session][:password]
     user = user_email.present? && User.find_by(email: user_email)
 
@@ -9,7 +10,8 @@ class Api::V1::SessionsController < Api::V1::ApiController
       sign_in user, store: false
       user.generate_authentication_token!
       user.save
-      render json: user, status: 200, location: [:api, user]
+      redirect_to ideas_path
+      # render json: user, status: 200, location: api_v1_users_path
     else
       render json: { errors: "Invalid email or password" }, status: 422
     end
