@@ -21,3 +21,11 @@
  .card-content {
    height: 300px;
  }
+
+ .idea-form {
+   height: 125px;
+ }
+
+.nav-wrapper {
+  padding-left: 10px;
+}
