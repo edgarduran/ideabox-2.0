@@ -1,4 +1,5 @@
 source 'https://rubygems.org'
+
 gem 'rails', '4.2.5'
 gem 'pg', '~> 0.15'
 gem 'sass-rails', '~> 5.0'
@@ -11,7 +12,8 @@ gem 'pry-rails'
 gem 'responders'
 gem 'simplecov'
 gem 'rack-cors', :require => 'rack/cors'
-
+gem 'bcrypt'
+gem 'devise'
 
 group :test do
   gem 'byebug'
