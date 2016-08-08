@@ -26,6 +26,10 @@
    height: 125px;
  }
 
+ .edit-form {
+   height: 88px;
+ }
+
 .nav-wrapper {
   padding-left: 10px;
 }

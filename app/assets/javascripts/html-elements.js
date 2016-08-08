@@ -1,18 +1,17 @@
 function editForm() {
   return $(
-    "<div class='container'>"
-    +"<div class='row'>"
-    +"<form class='col s12'>"
+    "<div class='row edit-form'>"
+    +"<form>"
     +"<h5>Make changes here</h5>"
     +"<div class='row'>"
-    +"<div class='input-field col s6'>"
+    +"<div class='input-field col s10'>"
     +"<i class='material-icons prefix'>star_rate</i>"
     +"<label for='icon_prefix'>Title</label>"
     +"<input class='form-control' id='edit-title' type='text' class='validate'>"
     +"</div>"
     +"</div>"
     +"<div class='row'>"
-    +"<div class='input-field col s6'>"
+    +"<div class='input-field col s10'>"
     +"<i class='material-icons prefix'>comment</i>"
     +"<label for='star_rate'>Body</label>"
     +"<textarea id='edit-body' class='materialize-textarea' length='120'></textarea>"
@@ -20,7 +19,6 @@ function editForm() {
     +"</div>"
     +"</div>"
     +"</form>"
-    +"</div>"
     +"</div>"
   )
 };

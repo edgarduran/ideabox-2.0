@@ -6,19 +6,23 @@ $(document).ready(function(){
     $('.allIdeas').delegate('#edit-idea', 'click', function() {
       var $idea = $(this).parents('.idea');
       var $ideaId = parseInt($(this).parents('.idea').attr('idea-id'));
-      var titleField = $(this).closest('.idea').find('#idea-title');
-      var bodyField = $(this).closest('.idea').find('#idea-body');
+      var currentTitle = $(this).closest('.idea').find('#idea-title').text();
+      var currentBody = $(this).closest('.idea').find('#idea-body').text();
+      var content = $(this).parents('.idea').find('.card-content');
+      var action = $(this).parents('.idea').find('.card-action');
       var editButton = $(this);
 
-      titleField.toggle();
-      bodyField.toggle();
+      content.toggle();
+      action.prepend(editForm());
+      $(this).parents('.idea').find('#edit-title').val(currentTitle);
+      $(this).parents('.idea').find('#edit-body').val(currentBody);
       editButton.toggle();
-      $idea.prepend(editForm());
+      // $idea.prepend(editForm());
 
       $idea.delegate('#save-changes', 'click', function() {
         var editParams = {
-          title: $(this).parents().find('#edit-title').val(),
-          body : $(this).parents().find('#edit-body').val()
+          title: $(this).parents('.idea').find('#edit-title').val(),
+          body : $(this).parents('.idea').find('#edit-body').val()
         };
 
         $.ajax({
@@ -27,11 +31,10 @@ $(document).ready(function(){
           url:  '/api/v1/ideas/' + $ideaId,
           success: function() {
             editButton.toggle();
-            $('#save-changes').closest('.container').hide();
-            bodyField.toggle();
-            bodyField.text(editParams.body);
-            titleField.toggle();
-            titleField.text(editParams.title);
+            content.toggle();
+            $('.edit-form').hide();
+            $idea.find('#idea-title').text(editParams.title);
+            $idea.find('#idea-body').text(editParams.body);
           },
           error: function(xhr) {
             console.log(xhr.responseText);
